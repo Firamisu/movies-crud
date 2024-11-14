@@ -1,0 +1,59 @@
+﻿@model Filmy.Models.Registration
+
+
+
+
+@using (Html.BeginForm("RegistrationForm", "Registration", FormMethod.Post))
+{
+    <div>
+        Imie <br />
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+
+    <div>
+        Nazwisko <br />
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LastName)
+    </div>
+
+    <div>
+        Email <br />
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div>
+        Hasło <br />
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <div>
+        Potwierdż hasło <br />
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+    <div>
+        Numer tel <br />
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", type = "tel" })
+        @Html.ValidationMessageFor(m => m.PhoneNumber)
+    </div>
+
+    <div>
+        Wiek <br />
+        @Html.TextBoxFor(m => m.Age, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(m => m.Age)
+    </div>
+
+    <div>
+        Wybierz miasto <br />
+        @Html.DropDownListFor(m => m.City, Html.GetEnumSelectList<CityEnum>(), "Wybierz miasto", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.City)
+    </div>
+        <br />
+
+    <button type="submit" class="btn btn-primary">Zarejestruj</button>
+    <button type="reset" class="btn btn-secondary">Wyczyść</button>
+}

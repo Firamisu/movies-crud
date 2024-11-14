@@ -1,0 +1,12 @@
+﻿@model Filmy.Models.Data
+
+
+@using (Html.BeginForm("Form", "Data", FormMethod.Post))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <p>Twoje imie: @Html.TextBoxFor(a => a.FirstName)</p>
+    <p>Twoj Email: @Html.TextBoxFor(a => a.Email)</p>
+    <p>Temat: @Html.TextBoxFor(a => a.Topic)</p>
+    <p>Tresc: @Html.TextAreaFor(a => a.Content)</p>
+    <input type="submit" />
+}
